@@ -29,13 +29,14 @@ namespace Script.System
             {
                 "git+https://github.com/adammyhre/Unity-Improved-Timers.git",
                 "com.unity.inputsystem"
-            };
+            };//此处添加需要的包
             
             Packages.InstallPackages(packages);
         }
         [MenuItem("Tools/Setup/Install Essential Folders")]    
         public static void Createfolders()
         {
+            //此处管理文件夹，可以按需添加
             Floders.Create("_Project","Animation","Art","Materials","Prefabs","Script/Tests","Script/Tests/Editor","Script/Tests/RunTime");
             Refresh();
             Floders.Move("_Project","Scenes");

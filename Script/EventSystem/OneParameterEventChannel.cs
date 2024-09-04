@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(menuName = "Data/EventChannals/OneParameterEventChannel",fileName = "OneParameterEventChannel")]
-public class OneParameterEventChannel<T> : MonoBehaviour
+public class OneParameterEventChannel<T> : ScriptableObject
 {
     private event System.Action<T> Delegate;
 
