@@ -37,7 +37,7 @@ public class StateMachine : MonoBehaviour
         SwitchOn(newState);
     }
 
-    public void SwichState (System.Type newStateType)
+    public void SwitchState (System.Type newStateType)
     {
         if ( CurrentStateType != newStateType )
         {

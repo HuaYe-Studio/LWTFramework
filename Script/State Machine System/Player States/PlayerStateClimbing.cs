@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Data/Statemachine/PlyaerState/Climbing",fileName = "PlayerStateClimbing")]
+[CreateAssetMenu(menuName = "Data/Statemachine/PlayerState/Climbing",fileName = "PlayerStateClimbing")]
 
 public class PlayerStateClimbing : PlayerState
 {
@@ -23,16 +23,16 @@ public class PlayerStateClimbing : PlayerState
     {
         if (input.Jump)
         {
-            stateMachine.SwichState(typeof(PlayerStateJumpUP));
+            stateMachine.SwitchState(typeof(PlayerStateJumpUP));
         }
 
         if (!Player.CanClimb)
         {
-            stateMachine.SwichState(typeof(PlayerStateFall));
+            stateMachine.SwitchState(typeof(PlayerStateFall));
         }
         if (Player.IsGound&& input.AxisY==0)
         {
-            stateMachine.SwichState(typeof(PlayerStateIdle));
+            stateMachine.SwitchState(typeof(PlayerStateIdle));
         }
         if (input.AxisY == 0)
         {

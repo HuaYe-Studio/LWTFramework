@@ -37,7 +37,7 @@ namespace Script.System
         public static void Createfolders()
         {
             //此处管理文件夹，可以按需添加
-            Floders.Create("_Project","Animation","Art","Materials","Prefabs","Script/Tests","Script/Tests/Editor","Script/Tests/RunTime");
+            Floders.Create("_Project","Animation","Art","Materials","Prefabs","Script/Tests","Script/Tests/Editor","Script/Tests/RunTime","Assets/StreamingAssets");
             Refresh();
             Floders.Move("_Project","Scenes");
             Floders.Move("_Project","Settings");

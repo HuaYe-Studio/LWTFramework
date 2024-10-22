@@ -1,11 +1,12 @@
 using System.Collections;
-using Assets.Script.Player.Skills;
+
 using Assets.Script.State_Machine_System.Player_States;
 using DG.Tweening;
 using UnityEngine;
-
+using ARPGDemo.Skill;
 public class PlayerController : MonoBehaviour
 {
+   // public CharacterState CharacterState;
     private PlayerInput input;
     internal Rigidbody2D rigidBody;
     public GroundDetect groundDetect;
@@ -23,8 +24,10 @@ public class PlayerController : MonoBehaviour
     public float moveSpeedY => rigidBody.velocity.y;
 
     internal Vector2? nearbyHookablePoint = null;
+    [HideInInspector]
+    public PlayerState[] Skills;
 
-
+    
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -82,13 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, velocityY);
     }
-
-
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-
-    }
+    
 
     public void SetGravity(float gravity)
     {
@@ -126,5 +123,12 @@ public class PlayerController : MonoBehaviour
             SetvelocityY(limit);
         }
     }
+    
+    
+    public void ChangeSkillX(PlayerState skill)
+    {
+        Skills[0] = skill;
+    }
 
+    
 }

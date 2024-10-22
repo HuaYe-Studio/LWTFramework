@@ -1,6 +1,6 @@
 using Assets.Script.State_Machine_System.Player_States;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Data/Statemachine/PlyaerState/Idle", fileName = "PlayerStateIdle")]
+[CreateAssetMenu(menuName = "Data/Statemachine/PlayerState/Idle", fileName = "PlayerStateIdle")]
 public class PlayerStateIdle : PlayerState
 {
     [SerializeField] public float acceleration;
@@ -22,20 +22,27 @@ public class PlayerStateIdle : PlayerState
     {
         if ( Player.CanClimb && input.OnClimb )
         {
-            stateMachine.SwichState(typeof(PlayerStateClimbing));
+            stateMachine.SwitchState(typeof(PlayerStateClimbing));
         }
         if ( input.Jump && Player.IsGound )
         {
-            stateMachine.SwichState(typeof(PlayerStateJumpUP));
+            stateMachine.SwitchState(typeof(PlayerStateJumpUP));
         }
         if ( input.Move )
         {
-            stateMachine.SwichState(typeof(PlayerStateRun));
+            stateMachine.SwitchState(typeof(PlayerStateRun));
         }
 
+        
         if ( !Player.IsGound )
         {
-            stateMachine.SwichState(typeof(PlayerStateFall));
+            stateMachine.SwitchState(typeof(PlayerStateFall));
+        }
+
+        if (input.Skill1)
+        {
+          
+            stateMachine.SwitchState(Player.Skills[0]);
         }
 
        

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ARPGDemo.Skill;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerInput : MonoBehaviour
     public bool Jump => inputActions.Player.Jump.WasPerformedThisFrame();
 
     public bool StopJump => inputActions.Player.Jump.WasReleasedThisFrame();
+
+    public bool Skill1 => inputActions.Player.Skill1.WasPerformedThisFrame();
     public Vector2 MousePosition => inputActions.Player.MousePosition.ReadValue<Vector2>();
 
     public float AxisX => axes.x;
@@ -23,22 +26,19 @@ public class PlayerInput : MonoBehaviour
     public bool Move => AxisX != 0f;
 
     private WaitForSeconds waitJumpBuffer;
-    
-    [SerializeField]
-     float jumpInputBufferTime = 0.5f;
-    
+
+    [SerializeField] float jumpInputBufferTime = 0.5f;
+
     public InputActions inputActions;
 
-    private void Awake ( )
+    private void Awake()
     {
-
         waitJumpBuffer = new WaitForSeconds(jumpInputBufferTime);
         inputActions = new InputActions();
-        
     }
 
     // Update is called once per frame
-    public void EnableGamePlayInputs ( )
+    public void EnableGamePlayInputs()
     {
         inputActions.Player.Enable();
         // Cursor.lockState = CursorLockMode.Locked;
@@ -46,10 +46,7 @@ public class PlayerInput : MonoBehaviour
 
     public void DisAblenTalent()
     {
-       
     }
-
-    
 
 
     public void SetJumpBufferTimer()
@@ -57,10 +54,14 @@ public class PlayerInput : MonoBehaviour
         StopCoroutine(nameof(JumpInputBuffercoroutine));
         StartCoroutine(nameof(JumpInputBuffercoroutine));
     }
+
     IEnumerator JumpInputBuffercoroutine()
     {
         HasJumpInputBuffer = true;
         yield return waitJumpBuffer;
         HasJumpInputBuffer = false;
     }
+
+
+    
 }

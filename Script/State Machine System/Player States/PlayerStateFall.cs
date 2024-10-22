@@ -1,7 +1,7 @@
 using Assets.Script.State_Machine_System.Player_States;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Statemachine/PlyaerState/Fall", fileName = "PlayerStateFall")]
+[CreateAssetMenu(menuName = "Data/Statemachine/PlayerState/Fall", fileName = "PlayerStateFall")]
 public class PlayerStateFall : PlayerState
 {
     // Start is called before the first frame update
@@ -28,12 +28,12 @@ public class PlayerStateFall : PlayerState
        
         if ( Player.IsGound )
         {
-            stateMachine.SwichState(typeof(PlayerStateLand));
+            stateMachine.SwitchState(typeof(PlayerStateLand));
         }
        
         if ( Player.CanClimb && input.OnClimb )
         {
-            stateMachine.SwichState(typeof(PlayerStateClimbing));
+            stateMachine.SwitchState(typeof(PlayerStateClimbing));
         }
 
         if (input.Jump)

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerStateJumpUp
   m_EditorClassIdentifier: 
   stateName: JumpUp
-  Jumpforce: 16
+  Jumpforce: 8
   speed: 7.16
   limitJumpSpeed: 20

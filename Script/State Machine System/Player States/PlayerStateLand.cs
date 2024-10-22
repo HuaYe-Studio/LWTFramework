@@ -1,5 +1,5 @@
 using UnityEngine;
-[CreateAssetMenu(menuName = "Data/Statemachine/PlyaerState/Land", fileName = "PlayerStateLand")]
+[CreateAssetMenu(menuName = "Data/Statemachine/PlayerState/Land", fileName = "PlayerStateLand")]
 public class PlayerStateLand : PlayerState
 {
     // Start is called before the first frame update
@@ -16,17 +16,17 @@ public class PlayerStateLand : PlayerState
       
         if ( input.Move )
         {
-            stateMachine.SwichState(typeof(PlayerStateRun));
+            stateMachine.SwitchState(typeof(PlayerStateRun));
         }
 
         if ( IsAnimationFinished )
         {
-            stateMachine.SwichState(typeof(PlayerStateIdle));
+            stateMachine.SwitchState(typeof(PlayerStateIdle));
         }
        
         if ( input.Jump ||input.HasJumpInputBuffer)
         {
-            stateMachine.SwichState(typeof(PlayerStateJumpUP));
+            stateMachine.SwitchState(typeof(PlayerStateJumpUP));
         }
     }
 

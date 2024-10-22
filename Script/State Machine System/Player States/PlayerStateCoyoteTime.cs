@@ -1,5 +1,5 @@
 using UnityEngine;
-[CreateAssetMenu(menuName = "Data/Statemachine/PlyaerState/CoyoteTime", fileName = "PlayerStateCoyoteTime")]
+[CreateAssetMenu(menuName = "Data/Statemachine/PlayerState/CoyoteTime", fileName = "PlayerStateCoyoteTime")]
 public class PlayerStateCoyoteTime : PlayerState
 {
 
@@ -19,18 +19,18 @@ public class PlayerStateCoyoteTime : PlayerState
        
         if ( input.Jump )
         {
-            stateMachine.SwichState(typeof(PlayerStateJumpUP));
+            stateMachine.SwitchState(typeof(PlayerStateJumpUP));
         }
 
         if ( !input.Move || coyoteTime <= stateTime )
         {
-            stateMachine.SwichState(typeof(PlayerStateFall));
+            stateMachine.SwitchState(typeof(PlayerStateFall));
         }
 
        
         if ( Player.CanClimb && input.OnClimb )
         {
-            stateMachine.SwichState(typeof(PlayerStateClimbing));
+            stateMachine.SwitchState(typeof(PlayerStateClimbing));
         }
       
 

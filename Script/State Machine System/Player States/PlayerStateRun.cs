@@ -1,6 +1,6 @@
 using Assets.Script.State_Machine_System.Player_States;
 using UnityEngine;
-[CreateAssetMenu(menuName = "Data/Statemachine/PlyaerState/Run", fileName = "PlayerStateRun")]
+[CreateAssetMenu(menuName = "Data/Statemachine/PlayerState/Run", fileName = "PlayerStateRun")]
 public class PlayerStateRun : PlayerState
 {
 
@@ -22,20 +22,20 @@ public class PlayerStateRun : PlayerState
         
         if ( input.Jump && Player.IsGound )
         {
-            stateMachine.SwichState(typeof(PlayerStateJumpUP));
+            stateMachine.SwitchState(typeof(PlayerStateJumpUP));
         }
        
         if ( !input.Move )
         {
-            stateMachine.SwichState(typeof(PlayerStateIdle));
+            stateMachine.SwitchState(typeof(PlayerStateIdle));
         }
         if ( !Player.IsGound )
         {
-            stateMachine.SwichState(typeof(PlayerStateCoyoteTime));
+            stateMachine.SwitchState(typeof(PlayerStateCoyoteTime));
         }
         if ( Player.CanClimb && input.OnClimb )
         {
-            stateMachine.SwichState(typeof(PlayerStateClimbing));
+            stateMachine.SwitchState(typeof(PlayerStateClimbing));
         }
         currentSpeedX = Mathf.MoveTowards(currentSpeedX, speed, acceleration * Time.deltaTime);
     }

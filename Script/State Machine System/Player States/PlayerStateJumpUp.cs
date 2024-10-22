@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/Statemachine/PlyaerState/JumpUp", fileName = "PlayerStateJumpUp")]
+[CreateAssetMenu(menuName = "Data/Statemachine/PlayerState/JumpUp", fileName = "PlayerStateJumpUp")]
 public class PlayerStateJumpUP : PlayerState
 {
     // Start is called before the first frame update
@@ -27,11 +27,11 @@ public class PlayerStateJumpUP : PlayerState
         // }
         if (Player.IsFalling)
         {
-            stateMachine.SwichState(typeof(PlayerStateFall));
+            stateMachine.SwitchState(typeof(PlayerStateFall));
         }
         if (input.Jump&& Player.IsGound)
         {
-            stateMachine.SwichState(typeof(PlayerStateJumpUP));
+            stateMachine.SwitchState(typeof(PlayerStateJumpUP));
         }
 
         
@@ -41,7 +41,7 @@ public class PlayerStateJumpUP : PlayerState
         // }
         if (Player.CanClimb && input.OnClimb)
         {
-            stateMachine.SwichState(typeof(PlayerStateClimbing));
+            stateMachine.SwitchState(typeof(PlayerStateClimbing));
         }
 
     }
